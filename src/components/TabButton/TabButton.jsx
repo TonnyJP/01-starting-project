@@ -1,7 +1,9 @@
-export const TabButton = (props) => {
+import React from "react"
+export const TabButton = ({children, onClick}) => {
+    
     return <li>
-        <button>
-            {props.children}
+        <button onClick={onClick}>
+            {children}
         </button>
     </li>
 }
