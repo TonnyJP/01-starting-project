@@ -5,7 +5,7 @@ import React from "react";
 
 function App() {
   console.log("testing, ", EXAMPLES)
-  const [selectedTopic, setSelectedTopic] = React.useState();
+  const [selectedTopic, setSelectedTopic] = React.useState("components");
 
   const onCklickHandler = (e) => {
     console.log(e)
@@ -32,19 +32,18 @@ function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-            <CoreConcept {...CoreConceptsData[0]}/>
-            <CoreConcept { ...CoreConceptsData[1]}/>
-            <CoreConcept { ...CoreConceptsData[2]}/>
-            <CoreConcept title={CoreConceptsData[3].title} description={CoreConceptsData[3].description} image={CoreConceptsData[3].image }/>
+            {CoreConceptsData.map((element, index) => {
+               return <CoreConcept key={index} {...element}/>
+            })}
           </ul>
         </section>
         <section id="examples">
            <h2>Examples</h2>
            <menu>
-            <TabButton onClick={() => onCklickHandler("components")}> Component </TabButton>
-            <TabButton onClick={() => onCklickHandler("jsx")}> JSX </TabButton>
-            <TabButton onClick={() => onCklickHandler("props")}> Props </TabButton>
-            <TabButton onClick={() => onCklickHandler("state")}> State </TabButton>
+            <TabButton isSelected={selectedTopic === "components"} onClick={() => onCklickHandler("components")}> Component </TabButton>
+            <TabButton isSelected={selectedTopic === "jsx"} onClick={() => onCklickHandler("jsx")}> JSX </TabButton>
+            <TabButton isSelected={selectedTopic === "props"} onClick={() => onCklickHandler("props")}> Props </TabButton>
+            <TabButton isSelected={selectedTopic === "state"} onClick={() => onCklickHandler("state")}> State </TabButton>
            </menu>
            <div id="tab-content">
             {tabContent}
