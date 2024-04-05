@@ -1,3 +1,4 @@
 export { Header } from "./header/Header";
-export { CoreConcept } from "./CoreConcept/CoreConcept";
+export { CoreConcepts } from "./CoreConcept/CoreConcepts";
 export { TabButton } from "./TabButton/TabButton";
+export { Examples } from "./Examples/Examples";
